@@ -1,6 +1,6 @@
 class Stack{
     constructor(){
-        this.stack = {};
+        this.stack = [];
     }
     push(element){
         this.stack.push(element);
