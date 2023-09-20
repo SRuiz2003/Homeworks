@@ -1,7 +1,7 @@
 
 import './App.css'
 
-function App() {
+function FirstApp() {
   return (
     <>  
       <h1>My new title in h1</h1>
@@ -10,4 +10,4 @@ function App() {
   )
 }
 
-export default App
+export default FirstApp
