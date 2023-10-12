@@ -1,25 +1,22 @@
-import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useCounter } from './hooks/useCounter';
 import './App.css'
 
-function FirstApp({title,sum}) {
+function FirstApp() {
+  const{counter,increment,decrease,reset} = useCounter(0);
 
   return (
     <>
-     <h1>{title}</h1>
-     <span>{sum}</span>
+     <h1>{counter}</h1>
+     <div>
+      <button onClick={()=>increment()}>Add</button>
+      <button onClick={()=>reset()}>Reset</button>
+      <button onClick={()=>decrease()}>Decrease</button>
+     </div>
     </>
   )
 }
-FirstApp.PropTypes = {
-  title: PropTypes.string.isRequired,
-  sum: PropTypes.number.isRequired
-}
 
-FirstApp.defaultProps = {
-  title:"No hay",
-  sum: 25
-}
+
 
 
 export default FirstApp
