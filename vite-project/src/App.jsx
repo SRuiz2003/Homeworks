@@ -1,24 +1,22 @@
-import PropTypes from 'prop-types';
-import './App.css'
+import React, { useEffect, useReducer } from "react";
+import { Route, Routes } from "react-router-dom";
+import { UserProvider } from "./components/UserProvider";
+import Login from "./components/Login";
+import { PrivateRoute } from "./components/PrivateRoute";
+import Home from "./components/Home";
 
-function FirstApp({title,sum}) {
-
+function FirstApp() {
+  
   return (
     <>
-     <h1>{title}</h1>
-     <span>{sum}</span>
+      <UserProvider>
+        <Routes>
+          <Route path="/login" element={<Login/>} />
+          <Route path="/" element={<PrivateRoute><Home/></PrivateRoute>} />
+        </Routes>
+      </UserProvider>
     </>
-  )
-}
-FirstApp.PropTypes = {
-  title: PropTypes.string.isRequired,
-  sum: PropTypes.number.isRequired
+  );
 }
 
-FirstApp.defaultProps = {
-  title:"No hay",
-  sum: 25
-}
-
-
-export default FirstApp
+export default FirstApp;
